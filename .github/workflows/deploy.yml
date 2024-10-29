@@ -17,18 +17,18 @@ jobs:
     # Passos da tarefa
     steps:
       # 1) Clona a repositório no container
-      - users: actions/checout@v3
+      - uses: actions/checout@v3
+      
+      # 2) Alterna para a pasta do projeto
+      - run: cd karangos
 
-      # 2) Assegura que o node está instalado no 
+      # 3) Assegura que o node está instalado no 
       #    container com uma versão especifica
       - name: Use Node.js v. 20
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
-
-      # 3) Alterna para a pasta do projeto
-      - run: cd karangos
 
       # 4) Instala as dependencias
       - run: npm install
